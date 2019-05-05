@@ -5,6 +5,8 @@ const request=require("request");
 const app=express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
+const path = require('path');
+const PORT = process.env.PORT || 3000;
 
 app.get("/",function(req,res){
   res.sendFile(__dirname+"/index.html");
@@ -30,7 +32,7 @@ app.post("/",function(req,res){
     if(response.statusCode==200){
       var data=JSON.parse(body);
       //console.log(data.weather[0].main);
-      
+
       var description=data.weather[0].description;
       var icon=data.weather[0].icon;
       var temp=data.main.temp -273;
@@ -54,7 +56,7 @@ app.post("/",function(req,res){
 });
 });
 
-app.listen(3000,function(){
+app.listen(PORT,function(){
   console.log("Server running on port 3000");
 });
 
