@@ -1,4 +1,7 @@
 // jshint esversion :6
+
+
+// Put API key in place of putApiKeyHere
 const express=require("express");
 const bodyParser=require("body-parser");
 const request=require("request");
@@ -23,7 +26,7 @@ app.post("/",function(req,res){
     method:"GET",
     qs:{
       q:value,
-      APPID:"0db1ee1b6831cc59a0dad2f086f0f556",
+      APPID:putApiKeyHere,
     },
 
   };
@@ -75,6 +78,4 @@ app.listen(PORT,function(){
 });
 
 
-//http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=0db1ee1b6831cc59a0dad2f086f0f556
-
-// api key 0db1ee1b6831cc59a0dad2f086f0f556
+//http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=putApiKeyHere
