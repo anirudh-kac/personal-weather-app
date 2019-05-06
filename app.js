@@ -13,6 +13,7 @@ app.get("/",function(req,res){
 });
 
 app.post("/",function(req,res){
+
   var value=req.body.options;
 
   var option={
@@ -30,6 +31,7 @@ app.post("/",function(req,res){
     console.log("Error");
   }else{
     if(response.statusCode==200){
+
       var data=JSON.parse(body);
       //console.log(data.weather[0].main);
 
@@ -39,7 +41,7 @@ app.post("/",function(req,res){
       var humidity=data.main.humidity;
       var windSpeed=data.wind.speed;
 
-
+      res.write("<p>Beta V2</p>");
       res.write("<h1>Hey Anirudh, Here's your weather data for "+value+"<h1>");
       res.write("<img src='http://openweathermap.org/img/w/"+icon+".png'>");
       res.write("<h1>"+description+"<h1>");
